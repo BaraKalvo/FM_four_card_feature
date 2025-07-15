@@ -1,0 +1,141 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --color-text-dark: hsl(234, 12%, 34%);
+    --color-text-lighter: hsl(212, 6%, 44%);
+    --color-red: hsl(0, 78%, 62%);
+    --color-cyan: hsl(180, 62%, 55%);
+    --color-orange: hsl(34, 97%, 64%);
+    --color-blue: hsl(212, 86%, 64%);
+}
+
+body {
+    margin: 0;
+    background-color: #fafafa;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    color: var(--color-text-lighter);
+}
+
+.wrapper {
+    max-width: 68rem;
+    padding: 3.75rem 1.5rem;
+    margin-inline: auto;
+}
+
+.title {
+    margin-block: 0 1rem;
+    color: var(--color-text-dark);
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    letter-spacing: 0.25px;
+}
+
+.title-thin {
+    font-weight: 200;
+}
+
+.header-text {
+    margin-block: 0 3.75rem;
+    text-align: center;
+    font-size: 0.9375rem;
+    line-height: 1.4;
+}
+
+.grid-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.card {
+    max-width: 25rem;
+    width: 100%;
+    margin-inline: auto;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 15px 30px -11px rgba(131, 166, 210, 0.5);
+    position: relative;
+    
+}
+
+.card-title {
+    margin-block: 0 0.375rem;
+    color: var(--color-text-dark);
+    font-weight: 600;
+    font-size: 1.25rem;
+    line-height: 1.35;
+}
+
+.card-text {
+    margin-block: 0 2rem;
+    font-size: 0.8125rem;
+    line-height: 1.6;
+}
+
+.card-image-wrapper {
+    text-align: right;
+}
+
+.card::before {
+    display: block;
+    content: "";
+    height: 4px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.card1::before {
+    background-color: var(--color-cyan);
+}
+
+.card2::before {
+    background-color: var(--color-red);
+}
+
+.card3::before {
+    background-color: var(--color-orange);
+}
+
+.card4::before {
+    background-color: var(--color-blue);
+}
+
+@media screen and (min-width: 40rem) {
+
+    .grid-wrapper {
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+        grid-template-rows: repeat(3, auto);
+        grid-template-areas: 
+            ". card1 card1 ."
+            "card2 card2 card3 card3"
+            ". card4 card4 .";
+    }
+
+    .card1 {
+        grid-area: card1;
+    }
+
+    .card2 {
+        grid-area: card2;
+    }
+
+    .card3 {
+        grid-area: card3;
+    }
+
+    .card4 {
+        grid-area: card4;
+    }
+}
